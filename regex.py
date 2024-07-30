@@ -40,9 +40,20 @@ print(matches)
 text = "The gross operating cost least vehicle in FY2022 Q1 was in $4.85 billion, in the previous quarter ie, in FY2021 Q4 was $3.2 billion"
 
 # pattern = r"\$[0-9\.]+"
-pattern = r"\$[\d\.]+"
+pattern = r"\$([\d\.]+)"
 
 
 matches = re.findall(pattern, text)
 
 print(matches)
+
+text = "The gross operating cost least vehicle in FY2022 Q1 was in $4.85 billion, in the previous quarter ie, in FY2021 Q4 was $3.2 billion"
+
+pattern = r"FY\d{4} (Q[1-4])[^\$]+\$([0-9\.]+)"
+
+
+matches = re.findall(pattern, text)
+search = re.search(pattern, text).group()
+
+print(matches)
+print(search)
